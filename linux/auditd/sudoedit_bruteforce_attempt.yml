@@ -1,0 +1,27 @@
+title: Sudoedit Bruteforce Attemps
+id: 7996a826-d5b3-4698-bc4f-f55ea206c58b
+status: experimental
+description: Detects Bruteforce attempts to exploit Heap-Based buffer overflow vulnerability in sudo (version 1.8.2 - 1.8.31p2 and 1.9.0 - 1.9.5p1).
+references: 
+  - https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit
+  - https://www.logpoint.com/en/blog/sudo-privilege-escalation-vulnerability/
+tags:
+  - attack.privilege_escalation
+  - attack.t1068
+  - cve.2021.3156
+author: 'Jaroslav Kotik (jkotik@exploit-consulting.eu)'
+date: 2022/02/21
+logsource:
+  product: linux
+  service: auditd
+detection:
+  selection:
+    type:
+      - EXECV
+      - SYSCALL
+      - ANOM_ABEND
+    exe: '/usr/bin/sudoedit'
+  condition: selection | count() by host > 20
+falsepositives:
+  - unknown
+level: critical
