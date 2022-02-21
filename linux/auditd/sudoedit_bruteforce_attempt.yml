@@ -1,4 +1,4 @@
-title: Sudoedit Bruteforce Attemps
+title: Sudoedit Bruteforce Attempt
 id: 7996a826-d5b3-4698-bc4f-f55ea206c58b
 status: experimental
 description: Detects Bruteforce attempts to exploit Heap-Based buffer overflow vulnerability in sudo (version 1.8.2 - 1.8.31p2 and 1.9.0 - 1.9.5p1).
