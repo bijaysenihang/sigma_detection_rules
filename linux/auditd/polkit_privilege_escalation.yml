@@ -1,0 +1,26 @@
+title: Polkit Privilege Escalation
+id: 47ba7b0b-9fd6-4884-8286-6ab8207a105b
+status: experimental
+description: The pkexec application doesn't handle the calling parameters count correctly and ends trying to execute environment variables as commands. An attacker can leverage this by crafting environment variables in such a way it'll induce pkexec to execute arbitrary code.
+references: 
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-4034
+  - https://www.socinvestigation.com/cve-2021-4034-polkit-vulnerability-exploit-detection/
+  - https://nvd.nist.gov/vuln/detail/CVE-2021-4034
+tags:
+  - attack.privilege_escalation
+  - attack.t1068
+  - cve.2021.4034
+author: 'Jaroslav Kotik (jkotik@exploit-consulting.eu)'
+date: 2022/02/21
+logsource:
+  product: linux
+  service: auditd
+detection:
+  selection:
+      type: SYSCALL
+      comm: null
+      exe: '/usr/bin/pkexec'
+  condition: selection
+falsepositives:
+  - unknown
+level: high
