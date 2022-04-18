@@ -1,0 +1,101 @@
+title: QRadar
+backends:
+ - qradar
+order: 20
+logsources:
+ apache:
+   service: apache
+   index: apache
+   conditions:
+     LOGSOURCETYPENAME(devicetype): '*apache*'
+ windows:
+   product: windows
+   index: windows
+   conditions:
+     LOGSOURCETYPENAME(devicetype): '*Microsoft Windows Security Event Log*'
+ qflow:
+   product: qflow
+   index: flows
+ netflow:
+   service: netflow
+   index: flows
+ ipfix:
+   product: ipfix
+   index: flows
+ flow:
+   category: flow
+   index: flows
+fieldmappings:
+ event_id: Event ID
+ EventID: Event ID
+ dst: destinationip
+ dst_ip: destinationip
+ src: sourceip
+ src_ip: sourceip
+ c-ip: sourceip
+ cs-ip: sourceip
+ c-uri: URL
+ c-uri-extension: URL
+ c-useragent: user_agent
+ c-uri-query: uri_query
+ cs-method: Method
+ r-dns: FQDN
+ ClientIP: sourceip
+ ServiceFileName: Service Filename
+ event_data.CommandLine: Command
+ CommandLine: Command
+ file_hash: File Hash
+ hash: File Hash
+ #Message: search_payload
+ Event-ID: Event ID
+ Event_ID: Event ID
+ eventId: Event ID
+ event-id: Event ID
+ eventid: Event ID
+ hashes: File Hash
+ url.query: URL
+ resource.URL: URL
+ event_data.CallingProcessName: CallingProcessName
+ event_data.ComputerName: Hostname/HOSTNAME
+ ComputerName: Hostname/HOSTNAME
+ event_data.DestinationHostname: Hostname/HOSTNAME
+ DestinationHostname: Hostname/HOSTNAME
+ event_data.DestinationIp: destinationip
+ event_data.DestinationPort: destinationip
+ event_data.Details: Target Details
+ Details: Target Details
+ event_data.FileName: Filename
+ event_data.Hashes: File Hash
+ Hashes: File Hash
+ event_data.Image: Image
+ event_data.ImageLoaded: Process Path
+ event_data.ImagePath: Source Process Path
+ ImagePath: Process Path
+ event_data.Imphash: IMP Hash
+ Imphash: IMP Hash
+ event_data.ParentCommandLine: Parent Command
+ event_data.ParentImage: Parent Process Path
+ event_data.ParentProcessName: Parent Process Name
+ event_data.Path: File Path
+ Path: File Path
+ event_data.PipeName: Pipe Name
+ event_data.ProcessCommandLine: Command
+ ProcessCommandLine: Command
+ event_data.ServiceFileName: Service Filename
+ event_data.ShareName: Share Name
+ event_data.Signature: Signature
+ event_data.SourceImage: Source Process Path
+ event_data.StartModule: Start Module
+ event_data.SubjectUserName: username
+ event_data.SubjectUserSid: SubjectUserSid
+ event_data.TargetFilename: Filename
+ TargetFilename: Filename
+ event_data.TargetImage: Target Process Path
+ TargetImage: Target Process Path
+ event_data.TicketOptions: TicketOptions
+ event_data.User: username
+ User: username
+ user: username
+
+#### adds
+ ParentCommandLine: Parent Command

@@ -1,0 +1,24 @@
+title:
+id: 
+status: 
+description:
+references: 
+  # url links
+author: 'Jaroslav Kotik (jkotik@exploit-consulting.eu)'
+date:
+level:
+tags:
+  # attack category
+  - attack 
+  # attack technique
+  - attack.t
+  # cve id
+  - cve.
+logsource:
+  product: 
+  service: 
+detection:
+  selection:
+  condition: selection
+falsepositives:
+  - unknown
